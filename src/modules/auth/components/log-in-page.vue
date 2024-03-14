@@ -1,37 +1,45 @@
 <template>
-	<div class="login  page_container">
-		<div class="login  logo_icon">
+	<div class="login page_container">
+		<div class="login logo_icon">
 			<img
 				src="../../../assets/loginLogo.svg"
 				alt="Единая фронтальная система"
 			/>
 		</div>
-		<div class="login  validation_form">
-			
+		<div class="login validation_form">
 			<InputText
 				type="text"
 				v-model="email"
 				class="login_input"
-				:class="{valid : isValidEmail == true, inValid: isValidEmail == false}"
+				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
 				placeholder="Логин"
 			/>
-			
+
 			<InputText
 				type="text"
 				v-model="pswwd"
 				class="login_input"
-				:class="{valid : isValidEmail == true, inValid: isValidEmail == false}"
+				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
 				placeholder="Пароль"
 			/>
-			<div v-if="email != '' && isValidEmail , pswwd != '' && isStrongPassword" class="incorrect_data">Введенные данные неверны, повторите попытку или обратитесь в ДИББ</div>
+			<div
+				v-if="(email != '' && isValidEmail, pswwd != '' && isStrongPassword)"
+				class="incorrect_data"
+			>
+				Введенные данные неверны, повторите попытку или обратитесь в ДИББ
+			</div>
 
 			<div class="checkbox">
 				<Checkbox v-model="checked" :binary="true" id="checkbox" />
 				Запомнить меня
 			</div>
 
-			<div class="login  submit_button w-full">
-				<Button :style="{ width: '100%' }" label="Войти в систему" @click="register"/>
+			<div class="login submit_button w-full">
+				<Button
+					:style="{ width: '100%' }"
+					label="Войти в систему"
+					@click="register"
+				/>
 			</div>
 		</div>
 	</div>
@@ -42,26 +50,27 @@ import { ref, computed } from "vue";
 import Checkbox from "primevue/checkbox";
 import Button from "primevue/button";
 
-
-const startValidation = ref(false) 
+const startValidation = ref(false);
 
 const email = ref("");
 const pswwd = ref("");
 const checked = ref(false);
 
 function register() {
-	startValidation.value= true
+	startValidation.value = true;
 }
 
 const isValidEmail = computed(() => {
-	return startValidation.value ? /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email.value) : null
-	}
-)  
+	return startValidation.value
+		? /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email.value)
+		: null;
+});
 
 const isStrongPassword = computed(() => {
-	return startValidation.value ? /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(pswwd.value) : null
-} )
-
+	return startValidation.value
+		? /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(pswwd.value)
+		: null;
+});
 </script>
 
 <style scoped>
@@ -172,31 +181,28 @@ const isStrongPassword = computed(() => {
 }
 
 .incorrect_data {
-/* Helper Text */
+	/* Helper Text */
 
-width: 470px;
-height: 16px;
+	width: 470px;
+	height: 16px;
 
-/* Caption/Regular */
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 0px;
-/* identical to box height, or 160% */
+	/* Caption/Regular */
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 0px;
+	/* identical to box height, or 160% */
 
-/* Highlights/Inactive */
-color: #E24C4C;
+	/* Highlights/Inactive */
+	color: #e24c4c;
 
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
-
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 0;
 }
-
 
 .submit_button {
 	/* button */
