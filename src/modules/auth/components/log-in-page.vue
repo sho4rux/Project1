@@ -23,7 +23,7 @@
 				:class="{valid : isValidEmail == true, inValid: isValidEmail == false}"
 				placeholder="Пароль"
 			/>
-			<div v-if="email != '' && isValidEmail && pswwd != '' && isStrongPassword" class="incorrec_data">Введенные данные неверны, повторите попытку или обратитесь в ДИББ</div>
+			<div v-if="email != '' && isValidEmail , pswwd != '' && isStrongPassword" class="incorrect_data">Введенные данные неверны, повторите попытку или обратитесь в ДИББ</div>
 
 			<div class="checkbox">
 				<Checkbox v-model="checked" :binary="true" id="checkbox" />
@@ -182,7 +182,7 @@ font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 10px;
-line-height: 16px;
+line-height: 0px;
 /* identical to box height, or 160% */
 
 /* Highlights/Inactive */
@@ -191,7 +191,7 @@ color: #E24C4C;
 
 /* Inside auto layout */
 flex: none;
-order: 1;
+order: 0;
 align-self: stretch;
 flex-grow: 0;
 
