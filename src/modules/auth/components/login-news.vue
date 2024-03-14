@@ -1,6 +1,6 @@
 <template>
-	<div class="login__news_container">
-		<div class="login__news_title">
+	<div class="login  news_container">
+		<div class="login  news_title">
 			<h3>Добро пожаловать</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<div class="login__news_icons">
+		<div class="login  news_icons">
 			<div class="news_icons_grid">
 				<div class="icon">
 					<i class="pi pi-book" style="font-size: 1rem"></i>
@@ -89,7 +89,6 @@
 import { ref } from 'vue'
 	let p = ref
 
-	const showContent = true
 	p = [
 		{title1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", text1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.", img1:'../../../assets/logo.svg'},
 		{title2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", text2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.", img2:'../../../assets/logo.svg'},
@@ -105,7 +104,7 @@ import { ref } from 'vue'
 	}
 }
 
-.login__news_container {
+.news_container {
 	box-sizing: border-box;
 
 	display: flex;
@@ -126,7 +125,7 @@ import { ref } from 'vue'
 	border-radius: 6px;
 }
 
-.login__news_welcome {
+.news_welcome {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -149,7 +148,7 @@ import { ref } from 'vue'
 	margin: 1px 1px 1px 1px;
 }
 
-.login__news_title {
+.news_title {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -222,7 +221,7 @@ import { ref } from 'vue'
 	justify-content: center;
 }
 
-.login__news_icons {
+.news_icons {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
