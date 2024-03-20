@@ -1,6 +1,6 @@
 <template>
-	<div class="login  news_container">
-		<div class="login  news_title">
+	<div class="login-news">
+		<div class="login-news__title">
 			<h3>Добро пожаловать</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis
@@ -8,33 +8,36 @@
 			</p>
 		</div>
 
-		<div class="news_box">
+		<div class="login-news__box">
 			<div class="news_content">
 				<div class="add_title"><h4>Объявления</h4></div>
-				<div class="main_content">
-					<button class="click_left_button" @click="showPreviousNews">
-						<i class="pi pi-angle-left" style="font-size: 1rem"></i>
-					</button>
-					<img src="../../../assets/newsphoto.svg" alt="newsphoto" />
-					<div class="text_content">
-						<p>
-						<div v-for="tes in p" :key="tes">
-							<h4>{{tes.title1}}</h4>
-							<p>{{ tes.text1 }}</p>
+				<Carousel
+					:value="p"
+					:numVisible="1"
+					:numScroll="1"
+					circular
+					:autoplayInterval="5000"
+					:responsiveOptions="responsiveOptions"
+				>
+					<template #item="slotProps">
+						<div class="main_content">
+							<!-- <img src="../../../assets/newsphoto.svg" alt="newsphoto" /> -->
+							<div class="text_content">
+								<div>
+									<h4>{{ slotProps.data.title }}</h4>
+									<p>{{ slotProps.data.text }}</p>
+								</div>
+							</div>
 						</div>
-						</p>
-					</div>
-					<button class="click_right_button" @click="showNextNews">
-						<i class="pi pi-angle-right" style="font-size: 1rem"></i>
-					</button>
-				</div>
+					</template>
+				</Carousel>
 			</div>
 		</div>
 
-		<div class="login  news_icons">
+		<div class="login news_icons">
 			<div class="news_icons_grid">
 				<div class="icon">
-					<i class="pi pi-book" style="font-size: 1rem"></i>
+					<i class="pi pi-book"></i>
 					<div class="icons__content">
 						База знаний
 						<p>Lorem ipsum dolor sit amet.</p>
@@ -50,7 +53,7 @@
 					</div>
 				</div>
 				<div class="icon">
-					<i class="pi pi-dollar" style="font-size: 1rem"></i>
+					<i class="pi pi-dollar"></i>
 					<div class="icons__content">
 						Курс валют
 						<p>Lorem ipsum dolor sit amet.</p>
@@ -59,7 +62,7 @@
 			</div>
 			<div class="news_icons_grid">
 				<div class="icon">
-					<i class="pi pi-users" style="font-size: 1rem"></i>
+					<i class="pi pi-users"></i>
 					<div class="icons__content">
 						Телефонный справочник
 						<p>Lorem ipsum dolor sit amet.</p>
@@ -67,14 +70,14 @@
 				</div>
 
 				<div class="icon">
-					<i class="pi pi-file" style="font-size: 1rem"></i>
+					<i class="pi pi-file"></i>
 					<div class="icons__content">
 						Шаблоны документов
 						<p>Lorem ipsum dolor sit amet.</p>
 					</div>
 				</div>
 				<div class="icon">
-					<i class="pi pi-megaphone" style="font-size: 1rem"></i>
+					<i class="pi pi-megaphone"></i>
 					<div class="icons__content">
 						Новости банка
 						<p>Lorem ipsum dolor sit amet.</p>
@@ -86,15 +89,26 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-	let p = ref
+import Carousel from "primevue/carousel";
 
-	p = [
-		{title1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", text1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.", img1:'../../../assets/logo.svg'},
-		{title2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", text2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.", img2:'../../../assets/logo.svg'},
-		{title3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit", text3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.", img3:'../../../assets/logo.svg'},
-	]
-
+import { ref } from "vue";
+const p = ref([
+	{
+		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.",
+		img: "../../../assets/logo.svg",
+	},
+	{
+		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.",
+		img: "../../../assets/logo.svg",
+	},
+	{
+		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.",
+		img: "../../../assets/logo.svg",
+	},
+]);
 </script>
 
 <style scoped>
@@ -104,7 +118,7 @@ import { ref } from 'vue'
 	}
 }
 
-.news_container {
+.login-news  {
 	box-sizing: border-box;
 
 	display: flex;
@@ -143,16 +157,11 @@ import { ref } from 'vue'
 	margin: 30px;
 }
 
-.news_title {
-	display: flex;
-	margin: 1px 1px 1px 1px;
-}
-
-.news_title {
+.login-news__title {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-
+	margin: 1px 1px 1px 1px;
 	width: 910px;
 	height: 72px;
 
@@ -161,7 +170,7 @@ import { ref } from 'vue'
 	flex-grow: 0;
 }
 
-.news_box {
+.login-news__box {
 	display: flex;
 }
 
@@ -269,7 +278,7 @@ import { ref } from 'vue'
 
 	width: 38px;
 	height: 38px;
-
+	font-size: 1rem;
 	border-radius: 6px;
 
 	flex: none;
@@ -313,11 +322,4 @@ import { ref } from 'vue'
 	color: #3b82f6;
 }
 
-button {
-	display: none;
-	cursor: pointer;
-	background: #ffffff;
-	border: none;
-	border: 1px solid rgb(255, 255, 255);
-}
 </style>

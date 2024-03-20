@@ -1,16 +1,16 @@
 <template>
-	<div class="login page_container">
-		<div class="login logo_icon">
+	<div class="login-page">
+		<div class="login-page__logo">
 			<img
 				src="../../../assets/loginLogo.svg"
 				alt="Единая фронтальная система"
 			/>
 		</div>
-		<div class="login validation_form">
+		<div class="login-page__validation">
 			<InputText
 				type="text"
 				v-model="email"
-				class="login_input"
+				class="login-page__input"
 				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
 				placeholder="Логин"
 			/>
@@ -18,28 +18,26 @@
 			<InputText
 				type="text"
 				v-model="pswwd"
-				class="login_input"
+				class="login-page__input"
 				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
 				placeholder="Пароль"
 			/>
 			<div
-				v-if="(email != '' && isValidEmail, pswwd != '' && isStrongPassword)"
-				class="incorrect_data"
+				v-if="
+					(email != '' && isValidEmail) || (pswwd != '' && isStrongPassword)
+				"
+				class="incorrect__data"
 			>
 				Введенные данные неверны, повторите попытку или обратитесь в ДИББ
 			</div>
 
-			<div class="checkbox">
+			<div class="login-page__checkbox">
 				<Checkbox v-model="checked" :binary="true" id="checkbox" />
 				Запомнить меня
 			</div>
 
-			<div class="login submit_button w-full">
-				<Button
-					:style="{ width: '100%' }"
-					label="Войти в систему"
-					@click="register"
-				/>
+			<div class="login-page__submit w-full">
+				<Button label="Войти в систему" @click="register" />
 			</div>
 		</div>
 	</div>
@@ -74,7 +72,7 @@ const isStrongPassword = computed(() => {
 </script>
 
 <style scoped>
-.page_container {
+.login-page {
 	box-sizing: border-box;
 
 	/* Auto layout */
@@ -98,7 +96,7 @@ const isStrongPassword = computed(() => {
 	border-radius: 6px;
 }
 
-.logo_icon {
+.login-page__logo {
 	/* ЕФС лого 2 */
 
 	/* Auto layout */
@@ -117,7 +115,7 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-.validation_form {
+.login-page__validation {
 	/* Frame 47543 */
 
 	/* Auto layout */
@@ -136,7 +134,7 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-.login_input {
+.login-page__input {
 	/* Input */
 
 	/* Auto layout */
@@ -180,7 +178,7 @@ const isStrongPassword = computed(() => {
 	border-color: red;
 }
 
-.incorrect_data {
+.incorrect__data {
 	/* Helper Text */
 
 	width: 470px;
@@ -204,7 +202,7 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-.submit_button {
+.login-page__submit {
 	/* button */
 
 	/* Auto layout */
@@ -231,16 +229,16 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-.chechbox {
+.login-page__checkbox {
 	/* Запомнить */
 
-	/* Auto layout */
-	display: flex;
+	display: inline-flex;
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
 	padding: 0px;
 	gap: 10px;
+	position: relative;
 
 	width: 138px;
 	height: 21px;
