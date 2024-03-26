@@ -7,10 +7,12 @@
 				tincidunt est.
 			</p>
 		</div>
-
+		
 		<div class="login-news__box">
-			<div class="news_content">
-				<div class="add_title"><h4>Объявления</h4></div>
+			<div class="news__content">
+				<div class="news__title">
+					<h4>Объявления</h4>
+				</div>
 				<Carousel
 					:value="p"
 					:numVisible="1"
@@ -21,13 +23,13 @@
 				>
 					<template #item="slotProps">
 						<div class="main_content">
-							<!-- <img src="../../../assets/newsphoto.svg" alt="newsphoto" /> -->
+							<img src="../../../assets/newsphoto.svg" alt="newsphoto" />
 							<div class="text_content">
-								<div>
+									<div class="news__context">
 									<h4>{{ slotProps.data.title }}</h4>
 									<p>{{ slotProps.data.text }}</p>
+										</div>
 								</div>
-							</div>
 						</div>
 					</template>
 				</Carousel>
@@ -174,10 +176,36 @@ const p = ref([
 	display: flex;
 }
 
-.text_content {
-	margin: 10px;
-	padding: 20px;
+.news__context{
+	display: table-column;
 }
+
+.text_content {
+/* Frame 47454 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 30px;
+
+width: 512px;
+height: 133px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+.news__title {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
 
 .news_icons_grid {
 	display: flex;
@@ -195,11 +223,6 @@ const p = ref([
 	flex-grow: 0;
 }
 
-.add_title {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-}
 
 .icon {
 	display: flex;
@@ -220,15 +243,28 @@ const p = ref([
 }
 
 .main_content {
-	display: flex;
+/* Frame 47529 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 30px;
+
+width: 165px;
+height: 195px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
 }
 
-.click_left_button,
-.click_right_button {
-	display: block;
-	align-content: center;
-	justify-content: center;
-}
+
 
 .news_icons {
 	display: flex;
@@ -321,5 +357,6 @@ const p = ref([
 	background: #b7d0f8;
 	color: #3b82f6;
 }
+
 
 </style>

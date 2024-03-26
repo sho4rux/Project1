@@ -23,4 +23,10 @@ import loginNews from "./modules/auth/components/login-news.vue";
 	/* Background */
 	background: #f8f9fa;
 }
+
+body {
+	@media (max-width: 768px) {
+		
+	}
+}
 </style>

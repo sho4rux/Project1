@@ -14,14 +14,15 @@
 				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
 				placeholder="Логин"
 			/>
-
 			<InputText
 				type="text"
 				v-model="pswwd"
 				class="login-page__input"
-				:class="{ valid: isValidEmail == true, inValid: isValidEmail == false }"
+				:class="{ valid: isValidEmail == true, inValid: isStrongPassword == false }"
 				placeholder="Пароль"
 			/>
+
+			
 			<div
 				v-if="
 					(email != '' && isValidEmail) || (pswwd != '' && isStrongPassword)
@@ -32,27 +33,32 @@
 			</div>
 
 			<div class="login-page__checkbox">
-				<Checkbox v-model="checked" :binary="true" id="checkbox" />
-				Запомнить меня
+				<Checkbox v-model="checked" :binary="true" />
+				<p>Запомнить меня</p>
 			</div>
 
-			<div class="login-page__submit w-full">
+			<div class="login-page__submit">
 				<Button label="Войти в систему" @click="register" />
 			</div>
 		</div>
 	</div>
+
 </template>
+
+
 
 <script setup>
 import { ref, computed } from "vue";
 import Checkbox from "primevue/checkbox";
 import Button from "primevue/button";
 
+
+
 const startValidation = ref(false);
 
 const email = ref("");
 const pswwd = ref("");
-const checked = ref(false);
+const checked = ref(true);
 
 function register() {
 	startValidation.value = true;
@@ -74,7 +80,6 @@ const isStrongPassword = computed(() => {
 <style scoped>
 .login-page {
 	box-sizing: border-box;
-
 	/* Auto layout */
 	display: flex;
 	flex-direction: column;
@@ -101,6 +106,7 @@ const isStrongPassword = computed(() => {
 
 	/* Auto layout */
 	display: flex;
+
 	flex-direction: row;
 	align-items: center;
 	padding: 7px 0px;
@@ -231,14 +237,12 @@ const isStrongPassword = computed(() => {
 
 .login-page__checkbox {
 	/* Запомнить */
-
-	display: inline-flex;
+	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
+	margin-left: auto;
 	align-items: center;
-	padding: 0px;
+
 	gap: 10px;
-	position: relative;
 
 	width: 138px;
 	height: 21px;
@@ -248,4 +252,5 @@ const isStrongPassword = computed(() => {
 	order: 2;
 	flex-grow: 0;
 }
+
 </style>
