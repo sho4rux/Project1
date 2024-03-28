@@ -7,7 +7,7 @@
 				tincidunt est.
 			</p>
 		</div>
-		
+
 		<div class="login-news__box">
 			<div class="news__content">
 				<div class="news__title">
@@ -25,11 +25,11 @@
 						<div class="main_content">
 							<img src="../../../assets/newsphoto.svg" alt="newsphoto" />
 							<div class="text_content">
-									<div class="news__context">
+								<div class="news__context">
 									<h4>{{ slotProps.data.title }}</h4>
 									<p>{{ slotProps.data.text }}</p>
-										</div>
 								</div>
+							</div>
 						</div>
 					</template>
 				</Carousel>
@@ -98,7 +98,7 @@ const p = ref([
 	{
 		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.",
-		img: "../../../assets/logo.svg",
+		img: "../../../assets/google-news.jpg",
 	},
 	{
 		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -108,19 +108,19 @@ const p = ref([
 	{
 		title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis tincidunt est. Cras tempus blandit lectus ut mollis. Quisque facilisis purus felis, sit amet porttitor nun.",
-		img: "../../../assets/logo.svg",
+		img: "../../../assets/bbc.png",
 	},
 ]);
 </script>
 
 <style scoped>
 @media screen and (max-width: 720px) {
-	div.login__news_container {
+	div.login-news {
 		display: none;
 	}
 }
 
-.login-news  {
+.login-news {
 	box-sizing: border-box;
 
 	display: flex;
@@ -176,36 +176,33 @@ const p = ref([
 	display: flex;
 }
 
-.news__context{
+.news__context {
 	display: table-column;
 }
 
 .text_content {
-/* Frame 47454 */
+	/* Frame 47454 */
 
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 30px;
+	/* Auto layout */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 30px;
 
-width: 512px;
-height: 133px;
+	width: 512px;
+	height: 133px;
 
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }
 .news__title {
 	display: flex;
 	justify-content: center;
 	align-content: center;
 }
-
 
 .news_icons_grid {
 	display: flex;
@@ -222,7 +219,6 @@ flex-grow: 0;
 	align-self: stretch;
 	flex-grow: 0;
 }
-
 
 .icon {
 	display: flex;
@@ -243,28 +239,24 @@ flex-grow: 0;
 }
 
 .main_content {
-/* Frame 47529 */
+	/* Frame 47529 */
 
-/* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0px;
-gap: 30px;
+	/* Auto layout */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0px;
+	gap: 30px;
 
-width: 165px;
-height: 195px;
+	width: 165px;
+	height: 195px;
 
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
-
+	/* Inside auto layout */
+	flex: none;
+	order: 1;
+	align-self: stretch;
+	flex-grow: 0;
 }
-
-
 
 .news_icons {
 	display: flex;
@@ -357,6 +349,5 @@ flex-grow: 0;
 	background: #b7d0f8;
 	color: #3b82f6;
 }
-
 
 </style>

@@ -78,6 +78,16 @@ const isStrongPassword = computed(() => {
 </script>
 
 <style scoped>
+
+@media all and(min-width: 720px) {
+		.login-page {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			margin: auto auto;
+			background: yellow;
+	}
+}
 .login-page {
 	box-sizing: border-box;
 	/* Auto layout */
@@ -208,10 +218,27 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-.login-page__submit {
-	/* button */
 
-	/* Auto layout */
+
+.login-page__checkbox {
+	/* Запомнить */
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	align-items: center;
+
+	gap: 10px;
+
+	width: 138px;
+	height: 21px;
+
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+Button { 
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -234,23 +261,4 @@ const isStrongPassword = computed(() => {
 	align-self: stretch;
 	flex-grow: 0;
 }
-
-.login-page__checkbox {
-	/* Запомнить */
-	display: flex;
-	flex-direction: row;
-	margin-left: auto;
-	align-items: center;
-
-	gap: 10px;
-
-	width: 138px;
-	height: 21px;
-
-	/* Inside auto layout */
-	flex: none;
-	order: 2;
-	flex-grow: 0;
-}
-
 </style>
