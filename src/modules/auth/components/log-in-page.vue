@@ -18,11 +18,13 @@
 				type="text"
 				v-model="pswwd"
 				class="login-page__input"
-				:class="{ valid: isValidEmail == true, inValid: isStrongPassword == false }"
+				:class="{
+					valid: isValidEmail == true,
+					inValid: isStrongPassword == false,
+				}"
 				placeholder="Пароль"
 			/>
 
-			
 			<div
 				v-if="
 					(email != '' && isValidEmail) || (pswwd != '' && isStrongPassword)
@@ -32,9 +34,15 @@
 				Введенные данные неверны, повторите попытку или обратитесь в ДИББ
 			</div>
 
-			<div class="login-page__checkbox">
-				<Checkbox v-model="checked" :binary="true" />
-				<p>Запомнить меня</p>
+			<div class="login-page__checkbox {
+">
+				<Checkbox
+					v-model="checked"
+					inputId="RememberMe"
+					name="checked"
+					value="Запомнить меня"
+				/>
+				<label for="RememberMe" class="ml-2">Запомнить меня</label>
 			</div>
 
 			<div class="login-page__submit">
@@ -42,23 +50,18 @@
 			</div>
 		</div>
 	</div>
-
 </template>
-
-
 
 <script setup>
 import { ref, computed } from "vue";
 import Checkbox from "primevue/checkbox";
 import Button from "primevue/button";
 
-
-
 const startValidation = ref(false);
 
 const email = ref("");
 const pswwd = ref("");
-const checked = ref(true);
+const checked = ref();
 
 function register() {
 	startValidation.value = true;
@@ -79,15 +82,6 @@ const isStrongPassword = computed(() => {
 
 <style scoped>
 
-@media all and(min-width: 720px) {
-		.login-page {
-			display: flex;
-			justify-content: center;
-			align-content: center;
-			margin: auto auto;
-			background: yellow;
-	}
-}
 .login-page {
 	box-sizing: border-box;
 	/* Auto layout */
@@ -218,8 +212,6 @@ const isStrongPassword = computed(() => {
 	flex-grow: 0;
 }
 
-
-
 .login-page__checkbox {
 	/* Запомнить */
 	display: flex;
@@ -229,16 +221,13 @@ const isStrongPassword = computed(() => {
 
 	gap: 10px;
 
-	width: 138px;
-	height: 21px;
-
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
 	flex-grow: 0;
 }
 
-Button { 
+Button {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
